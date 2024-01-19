@@ -9,7 +9,9 @@ public class Race : MonoBehaviour
     public GameObject dwarfPrefab;
     public GameObject orcPrefab;
 
-    public GameController gameController; // Referência ao GameController
+    public GameController gameController; // Adicione esta linha para declarar a variável gameController
+
+    private GameObject selectedPrefab; // Prefab selecionado pelo jogador
 
     private void Start()
     {
@@ -23,35 +25,35 @@ public class Race : MonoBehaviour
 
     public void SelectHuman()
     {
-        SpawnCharacter(humanPrefab);
+        selectedPrefab = humanPrefab;
         OnOptionSelected();
     }
 
     public void SelectElf()
     {
-        SpawnCharacter(elfPrefab);
+        selectedPrefab = elfPrefab;
         OnOptionSelected();
     }
 
     public void SelectDwarf()
     {
-        SpawnCharacter(dwarfPrefab);
+        selectedPrefab = dwarfPrefab;
         OnOptionSelected();
     }
 
     public void SelectOrc()
     {
-        SpawnCharacter(orcPrefab);
+        selectedPrefab = orcPrefab;
         OnOptionSelected();
     }
 
-    private void SpawnCharacter(GameObject prefab)
+    public void SelectRace()
     {
         // Destruir personagem existente, se houver
         Destroy(GameObject.FindGameObjectWithTag("Player"));
 
         // Spawn do novo personagem
-        Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
     }
 
     private void OnOptionSelected()
