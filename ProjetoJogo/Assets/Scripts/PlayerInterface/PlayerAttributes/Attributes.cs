@@ -5,151 +5,168 @@ using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour
 {
-    public Text forcaText;
-    public Text destrezaText;
-    public Text constituicaoText;
-    public Text inteligenciaText;
-    public Text sabedoriaText;
-    public Text carismaText;
+    public Text strengthText;
+    public Text dexterityText;
+    public Text constitutionText;
+    public Text intelligenceText;
+    public Text wisdomText;
+    public Text charismaText;
 
-    public Button aumentarForcaBtn;
-    public Button diminuirForcaBtn;
-    public Button aumentarDestrezaBtn;
-    public Button diminuirDestrezaBtn;
-    public Button aumentarConstituicaoBtn;
-    public Button diminuirConstituicaoBtn;
-    public Button aumentarInteligenciaBtn;
-    public Button diminuirInteligenciaBtn;
-    public Button aumentarSabedoriaBtn;
-    public Button diminuirSabedoriaBtn;
-    public Button aumentarCarismaBtn;
-    public Button diminuirCarismaBtn;
+    public Button increaseStrengthBtn;
+    public Button decreaseStrengthBtn;
+    public Button increaseDexterityBtn;
+    public Button decreaseDexterityBtn;
+    public Button increaseConstitutionBtn;
+    public Button decreaseConstitutionBtn;
+    public Button increaseIntelligenceBtn;
+    public Button decreaseIntelligenceBtn;
+    public Button increaseWisdomBtn;
+    public Button decreaseWisdomBtn;
+    public Button increaseCharismaBtn;
+    public Button decreaseCharismaBtn;
 
-    public Text pontosDisponiveisText;
+    public Text availablePointsText;
 
-    private int pontosDisponiveis = 5;
+    private int availablePoints = 5;
 
-    private int forca;
-    private int destreza;
-    private int constituicao;
-    private int inteligencia;
-    private int sabedoria;
-    private int carisma;
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
 
     void Start()
     {
-        // Inicialização dos botões e textos
-        aumentarForcaBtn.onClick.AddListener(() => AumentarAtributo("Forca"));
-        diminuirForcaBtn.onClick.AddListener(() => DiminuirAtributo("Forca"));
-        aumentarDestrezaBtn.onClick.AddListener(() => AumentarAtributo("Destreza"));
-        diminuirDestrezaBtn.onClick.AddListener(() => DiminuirAtributo("Destreza"));
-        aumentarConstituicaoBtn.onClick.AddListener(() => AumentarAtributo("Constituicao"));
-        diminuirConstituicaoBtn.onClick.AddListener(() => DiminuirAtributo("Constituicao"));
-        aumentarInteligenciaBtn.onClick.AddListener(() => AumentarAtributo("Inteligencia"));
-        diminuirInteligenciaBtn.onClick.AddListener(() => DiminuirAtributo("Inteligencia"));
-        aumentarSabedoriaBtn.onClick.AddListener(() => AumentarAtributo("Sabedoria"));
-        diminuirSabedoriaBtn.onClick.AddListener(() => DiminuirAtributo("Sabedoria"));
-        aumentarCarismaBtn.onClick.AddListener(() => AumentarAtributo("Carisma"));
-        diminuirCarismaBtn.onClick.AddListener(() => DiminuirAtributo("Carisma"));
+        // Button and text initialization
+        increaseStrengthBtn.onClick.AddListener(() => IncreaseAttribute("Strength"));
+        decreaseStrengthBtn.onClick.AddListener(() => DecreaseAttribute("Strength"));
+        increaseDexterityBtn.onClick.AddListener(() => IncreaseAttribute("Dexterity"));
+        decreaseDexterityBtn.onClick.AddListener(() => DecreaseAttribute("Dexterity"));
+        increaseConstitutionBtn.onClick.AddListener(() => IncreaseAttribute("Constitution"));
+        decreaseConstitutionBtn.onClick.AddListener(() => DecreaseAttribute("Constitution"));
+        increaseIntelligenceBtn.onClick.AddListener(() => IncreaseAttribute("Intelligence"));
+        decreaseIntelligenceBtn.onClick.AddListener(() => DecreaseAttribute("Intelligence"));
+        increaseWisdomBtn.onClick.AddListener(() => IncreaseAttribute("Wisdom"));
+        decreaseWisdomBtn.onClick.AddListener(() => DecreaseAttribute("Wisdom"));
+        increaseCharismaBtn.onClick.AddListener(() => IncreaseAttribute("Charisma"));
+        decreaseCharismaBtn.onClick.AddListener(() => DecreaseAttribute("Charisma"));
 
-        AtualizarUI();
+        // Set initial attribute values
+        SetInitialAttributes(4, 4, 4, 4, 4, 4);
+
+        UpdateUI();
+        
     }
 
-    void AumentarAtributo(string atributo)
+    // Method to set initial attribute values
+    public void SetInitialAttributes(int initialStrength, int initialDexterity, int initialConstitution, int initialIntelligence, int initialWisdom, int initialCharisma)
     {
-        if (pontosDisponiveis > 0)
+        strength = initialStrength;
+        dexterity = initialDexterity;
+        constitution = initialConstitution;
+        intelligence = initialIntelligence;
+        wisdom = initialWisdom;
+        charisma = initialCharisma;
+
+        UpdateUI();
+    }
+
+    void IncreaseAttribute(string attribute)
+    {
+        if (availablePoints > 0)
         {
-            switch (atributo)
+            switch (attribute)
             {
-                case "Forca":
-                    forca++;
+                case "Strength":
+                    strength++;
                     break;
-                case "Destreza":
-                    destreza++;
+                case "Dexterity":
+                    dexterity++;
                     break;
-                case "Constituicao":
-                    constituicao++;
+                case "Constitution":
+                    constitution++;
                     break;
-                case "Inteligencia":
-                    inteligencia++;
+                case "Intelligence":
+                    intelligence++;
                     break;
-                case "Sabedoria":
-                    sabedoria++;
+                case "Wisdom":
+                    wisdom++;
                     break;
-                case "Carisma":
-                    carisma++;
+                case "Charisma":
+                    charisma++;
                     break;
             }
 
-            pontosDisponiveis--;
-            AtualizarUI();
+            availablePoints--;
+            UpdateUI();
         }
     }
 
-    void DiminuirAtributo(string atributo)
+    void DecreaseAttribute(string attribute)
     {
-        switch (atributo)
+        switch (attribute)
         {
-            case "Forca":
-                if (forca > 0)
+            case "Strength":
+                if (strength > 0)
                 {
-                    forca--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    strength--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
-            case "Destreza":
-                if (destreza > 0)
+            case "Dexterity":
+                if (dexterity > 0)
                 {
-                    destreza--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    dexterity--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
-            case "Constituicao":
-                if (constituicao > 0)
+            case "Constitution":
+                if (constitution > 0)
                 {
-                    constituicao--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    constitution--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
-            case "Inteligencia":
-                if (inteligencia > 0)
+            case "Intelligence":
+                if (intelligence > 0)
                 {
-                    inteligencia--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    intelligence--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
-            case "Sabedoria":
-                if (sabedoria > 0)
+            case "Wisdom":
+                if (wisdom > 0)
                 {
-                    sabedoria--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    wisdom--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
-            case "Carisma":
-                if (carisma > 0)
+            case "Charisma":
+                if (charisma > 0)
                 {
-                    carisma--;
-                    pontosDisponiveis++;
-                    AtualizarUI();
+                    charisma--;
+                    availablePoints++;
+                    UpdateUI();
                 }
                 break;
         }
     }
 
-    void AtualizarUI()
+    void UpdateUI()
     {
-        forcaText.text = "Força: " + forca;
-        destrezaText.text = "Destreza: " + destreza;
-        constituicaoText.text = "Constituição: " + constituicao;
-        inteligenciaText.text = "Inteligência: " + inteligencia;
-        sabedoriaText.text = "Sabedoria: " + sabedoria;
-        carismaText.text = "Carisma: " + carisma;
+        strengthText.text = "Strength: " + strength;
+        dexterityText.text = "Dexterity: " + dexterity;
+        constitutionText.text = "Constitution: " + constitution;
+        intelligenceText.text = "Intelligence: " + intelligence;
+        wisdomText.text = "Wisdom: " + wisdom;
+        charismaText.text = "Charisma: " + charisma;
 
-        pontosDisponiveisText.text = "Pontos Disponíveis: " + pontosDisponiveis;
+        availablePointsText.text = "Available Points: " + availablePoints;
     }
 }

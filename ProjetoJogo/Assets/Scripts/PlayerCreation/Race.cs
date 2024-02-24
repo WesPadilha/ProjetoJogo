@@ -9,7 +9,9 @@ public class Race : MonoBehaviour
     public GameObject dwarfPrefab;
     public GameObject orcPrefab;
 
-    public GameController gameController; // Adicione esta linha para declarar a variável gameController
+    public Attributes attributes;   
+
+    public GameController gameController;
 
     private GameObject selectedPrefab; // Prefab selecionado pelo jogador
 
@@ -48,13 +50,33 @@ public class Race : MonoBehaviour
     }
 
     public void SelectRace()
-    {
-        // Destruir personagem existente, se houver
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        {
+            // Destruir personagem existente, se houver
+            GameObject existingPlayer = GameObject.FindGameObjectWithTag("Player");
+            if (existingPlayer != null)
+            {
+                Destroy(existingPlayer);
+            }
 
-        // Spawn do novo personagem
-        Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
-    }
+            // Spawn do novo personagem
+            GameObject newPlayer = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
+
+            // Obtém a referência ao componente PlayerAttributes do novo jogador
+            PlayerAttributes playerAttributes = newPlayer.GetComponentInChildren<PlayerAttributes>();
+            if (playerAttributes != null)
+            {
+                // Obtém os valores dos atributos do jogador
+                (int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) = playerAttributes.GetAttributes();
+
+                // Configura os valores dos atributos no script Attributes
+                attributes.SetInitialAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
+            }
+            else
+            {
+                Debug.LogError("PlayerAttributes não encontrado no jogador recém-criado.");
+            }
+        }
+    
 
     private void OnOptionSelected()
     {
@@ -63,6 +85,21 @@ public class Race : MonoBehaviour
         {
             // Chama a função OnOptionSelected no GameController
             gameController.OnOptionSelected();
+        }
+        else
+        {
+            Debug.LogError("GameController não encontrado. Certifique-se de atribuir o GameController ao script Race no Editor do Unity.");
+        }
+    }
+
+    // Este método será chamado quando o jogador pressionar o botão "Voltar" na escolha de raça
+    public void OnRaceBackButtonPressed()
+    {
+        // Verifica se GameController está atribuído antes de chamá-lo
+        if (gameController != null)
+        {
+            // Chama a função OnRaceBackButtonPressed no GameController
+            gameController.OnRaceBackButtonPressed();
         }
         else
         {

@@ -36,6 +36,16 @@ public class GameController : MonoBehaviour
         thirdScreen.SetActive(true);
     }
 
+    // Este método será chamado quando o jogador pressionar o botão "Voltar" na terceira tela
+    public void OnBackButtonPressed()
+    {
+        // Desativar a terceira tela
+        thirdScreen.SetActive(false);
+
+        // Ativar a segunda tela
+        secondScreen.SetActive(true);
+    }
+
     // Este método será chamado quando o jogador pressionar o botão "Concluir" na terceira tela
     public void OnFinishButtonPressed()
     {
@@ -46,6 +56,17 @@ public class GameController : MonoBehaviour
 
         // Spawn do prefab do personagem
         SpawnCharacter();
+    }
+
+    // Este método será chamado quando o jogador pressionar o botão "Voltar" na escolha de raça
+    public void OnRaceBackButtonPressed()
+    {
+        // Ativar a tela de seleção
+        selectionScreen.SetActive(true);
+
+        // Desativar a segunda e terceira telas
+        secondScreen.SetActive(false);
+        thirdScreen.SetActive(false);
     }
 
     private void SpawnCharacter()
@@ -64,4 +85,3 @@ public class GameController : MonoBehaviour
         }
     }
 }
-
