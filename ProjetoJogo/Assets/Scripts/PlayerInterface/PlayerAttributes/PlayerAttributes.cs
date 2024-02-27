@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
 {
-    [SerializeField] private int strength = 4;
-    [SerializeField] private int dexterity = 4;
-    [SerializeField] private int constitution = 4;
-    [SerializeField] private int intelligence = 4;
-    [SerializeField] private int wisdom = 4;
-    [SerializeField] private int charisma = 4;
+    public int strength = 4;
+    public int dexterity = 4;
+    public int constitution = 4;
+    public int intelligence = 4;
+    public int wisdom = 4;
+    public int charisma = 4;
 
     private void Start()
     {

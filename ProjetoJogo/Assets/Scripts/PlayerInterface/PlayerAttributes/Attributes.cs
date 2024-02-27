@@ -29,12 +29,12 @@ public class Attributes : MonoBehaviour
 
     private int availablePoints = 5;
 
-    private int strength;
-    private int dexterity;
-    private int constitution;
-    private int intelligence;
-    private int wisdom;
-    private int charisma;
+    public int strength;
+    public int dexterity;
+    public int constitution;
+    public int intelligence;
+    public int wisdom;
+    public int charisma;
 
     void Start()
     {
