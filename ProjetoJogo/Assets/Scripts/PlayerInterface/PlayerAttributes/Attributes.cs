@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour
 {
+
+    public Skills skills;
     public Text strengthText;
     public Text dexterityText;
     public Text constitutionText;
@@ -168,5 +170,7 @@ public class Attributes : MonoBehaviour
         charismaText.text = "Charisma: " + charisma;
 
         availablePointsText.text = "Available Points: " + availablePoints;
+
+        skills.UpdateSkillsBasedOnAttributes();
     }
 }

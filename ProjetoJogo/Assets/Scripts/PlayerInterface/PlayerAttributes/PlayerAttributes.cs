@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
 {
-    public int strength = 4;
-    public int dexterity = 4;
-    public int constitution = 4;
-    public int intelligence = 4;
-    public int wisdom = 4;
-    public int charisma = 4;
+    public int strength;
+    public int dexterity;
+    public int constitution;
+    public int intelligence;
+    public int wisdom;
+    public int charisma;
 
     private void Start()
     {

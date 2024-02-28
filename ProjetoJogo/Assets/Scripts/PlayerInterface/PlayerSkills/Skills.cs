@@ -15,6 +15,7 @@ public class Skills : MonoBehaviour
     public Text medicineText;
     public Text tradeText;
     public Text oratoryText;
+    public Text conjurationText;
 
     public Button increaseGreatWeaponsBtn;
     public Button decreaseGreatWeaponsBtn;
@@ -22,6 +23,8 @@ public class Skills : MonoBehaviour
     public Button decreaseRangedWeaponsBtn;
     public Button increaseSmallWeaponsBtn;
     public Button decreaseSmallWeaponsBtn;
+    public Button increaseConjurationBtn; 
+    public Button decreaseConjurationBtn; 
     public Button increaseLockpickingBtn;
     public Button decreaseLockpickingBtn;
     public Button increaseCamouflageBtn;
@@ -37,11 +40,12 @@ public class Skills : MonoBehaviour
 
     public Text availableSkillPointsText;
 
-    private int availableSkillPoints =  20; // Inicialmente, você tem  20 pontos para distribuir nas habilidades
+    private int availableSkillPoints = 20;
 
     private int greatWeapons;
     private int rangedWeapons;
     private int smallWeapons;
+    private int conjuration; 
     private int lockpicking;
     private int camouflage;
     private int defense;
@@ -58,6 +62,8 @@ public class Skills : MonoBehaviour
         decreaseRangedWeaponsBtn.onClick.AddListener(() => DecreaseSkill("RangedWeapons"));
         increaseSmallWeaponsBtn.onClick.AddListener(() => IncreaseSkill("SmallWeapons"));
         decreaseSmallWeaponsBtn.onClick.AddListener(() => DecreaseSkill("SmallWeapons"));
+        increaseConjurationBtn.onClick.AddListener(() => IncreaseSkill("Conjuration"));
+        decreaseConjurationBtn.onClick.AddListener(() => DecreaseSkill("Conjuration"));
         increaseLockpickingBtn.onClick.AddListener(() => IncreaseSkill("Lockpicking"));
         decreaseLockpickingBtn.onClick.AddListener(() => DecreaseSkill("Lockpicking"));
         increaseCamouflageBtn.onClick.AddListener(() => IncreaseSkill("Camouflage"));
@@ -72,23 +78,26 @@ public class Skills : MonoBehaviour
         decreaseOratoryBtn.onClick.AddListener(() => DecreaseSkill("Oratory"));
 
         // Definição dos valores iniciais das habilidades
-        SetInitialSkills(4,  4,  4,  4,  4,  4,  4,  4,  4);
-
-        UpdateUI();
+        UpdateSkillsBasedOnAttributes();
     }
 
     // Método para definir os valores iniciais das habilidades
-    public void SetInitialSkills(int initialGreatWeapons, int initialRangedWeapons, int initialSmallWeapons, int initialLockpicking, int initialCamouflage, int initialDefense, int initialMedicine, int initialTrade, int initialOratory)
+    public void UpdateSkillsBasedOnAttributes()
     {
-        greatWeapons = initialGreatWeapons;
-        rangedWeapons = initialRangedWeapons;
-        smallWeapons = initialSmallWeapons;
-        lockpicking = initialLockpicking;
-        camouflage = initialCamouflage;
-        defense = initialDefense;
-        medicine = initialMedicine;
-        trade = initialTrade;
-        oratory = initialOratory;
+        // Atualize cada habilidade com base nos atributos correspondentes
+        greatWeapons = attributes.strength + attributes.dexterity;
+        rangedWeapons = attributes.strength + attributes.dexterity;
+        smallWeapons = attributes.strength + attributes.dexterity;
+        conjuration = attributes.intelligence + attributes.charisma;
+        lockpicking = attributes.dexterity + attributes.wisdom;
+        camouflage = attributes.dexterity + attributes.intelligence;
+        defense = attributes.strength + attributes.constitution;
+        medicine = attributes.intelligence + attributes.wisdom;
+        trade = attributes.wisdom + attributes.charisma;
+        oratory = attributes.wisdom + attributes.charisma;
+
+        // Atualize a UI
+        UpdateUI();
     }
 
     void IncreaseSkill(string skill)
@@ -98,31 +107,34 @@ public class Skills : MonoBehaviour
             switch (skill)
             {
                 case "GreatWeapons":
-                    greatWeapons += attributes.strength + attributes.dexterity;
+                    greatWeapons ++;
                     break;
                 case "RangedWeapons":
-                    rangedWeapons += attributes.strength + attributes.dexterity;
+                    rangedWeapons ++;
                     break;
                 case "SmallWeapons":
-                    smallWeapons += attributes.strength + attributes.dexterity;
+                    smallWeapons ++;
+                    break;
+                case "Conjuration":
+                    conjuration ++;
                     break;
                 case "Lockpicking":
-                    lockpicking += attributes.dexterity + attributes.wisdom;
+                    lockpicking ++;
                     break;
                 case "Camouflage":
-                    camouflage += attributes.dexterity + attributes.intelligence;
+                    camouflage ++;
                     break;
                 case "Defense":
-                    defense += attributes.strength + attributes.constitution;
+                    defense ++;
                     break;
                 case "Medicine":
-                    medicine += attributes.intelligence + attributes.wisdom;
+                    medicine ++;
                     break;
                 case "Trade":
-                    trade += attributes.wisdom + attributes.charisma;
+                    trade ++;
                     break;
                 case "Oratory":
-                    oratory += attributes.wisdom + attributes.charisma;
+                    oratory ++;
                     break;
             }
 
@@ -155,6 +167,14 @@ public class Skills : MonoBehaviour
                 if (smallWeapons >  0)
                 {
                     smallWeapons--;
+                    availableSkillPoints++;
+                    UpdateUI();
+                }
+                break;
+            case "Conjuration":
+                if (conjuration > 0)
+                {
+                    conjuration--;
                     availableSkillPoints++;
                     UpdateUI();
                 }
@@ -215,6 +235,7 @@ public class Skills : MonoBehaviour
         greatWeaponsText.text = "Great Weapons: " + greatWeapons;
         rangedWeaponsText.text = "Ranged Weapons: " + rangedWeapons;
         smallWeaponsText.text = "Small Weapons: " + smallWeapons;
+        conjurationText.text = "Conjuration: " + conjuration;
         lockpickingText.text = "Lockpicking: " + lockpicking;
         camouflageText.text = "Camouflage: " + camouflage;
         defenseText.text = "Defense: " + defense;

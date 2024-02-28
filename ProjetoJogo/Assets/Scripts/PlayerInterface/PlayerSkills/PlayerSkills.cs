@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class PlayerSkills : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int greatWeapons;
+    public int rangedWeapons;
+    public int smallWeapons;
+    public int conjuration;
+    public int lockpicking;
+    public int camouflage;
+    public int defense;
+    public int medicine;
+    public int trade;
+    public int oratory;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
