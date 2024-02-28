@@ -99,7 +99,6 @@ public class Skills : MonoBehaviour
         // Atualize a UI
         UpdateUI();
     }
-
     void IncreaseSkill(string skill)
     {
         if (availableSkillPoints >  0)
@@ -234,6 +233,11 @@ public class Skills : MonoBehaviour
     {
         availableSkillPoints = 20;
         UpdateSkillsBasedOnAttributes(); 
+    }
+
+    public int GetAvailableSkillPoints()
+    {
+        return availableSkillPoints;
     }
 
     void UpdateUI()

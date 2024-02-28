@@ -24,35 +24,30 @@ public class Race : MonoBehaviour
             Debug.LogError("GameController não atribuído ao script Race. Atribua-o no Editor do Unity ou encontre-o em tempo de execução.");
         }
     }
-
     public void SelectHuman()
     {
         selectedPrefab = humanPrefab;
         attributes.SetAttributesBasedOnRace("Human");
         OnOptionSelected();
     }
-
     public void SelectElf()
     {
         selectedPrefab = elfPrefab;
         attributes.SetAttributesBasedOnRace("Elf");
         OnOptionSelected();
     }
-
     public void SelectDwarf()
     {
         selectedPrefab = dwarfPrefab;
         attributes.SetAttributesBasedOnRace("Dwarf");
         OnOptionSelected();
     }
-
     public void SelectOrc()
     {
         selectedPrefab = orcPrefab;
         attributes.SetAttributesBasedOnRace("Orc");
         OnOptionSelected();
     }
-
     public void SelectRace()
     {
         // Destruir personagem existente, se houver

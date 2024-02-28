@@ -182,7 +182,12 @@ public class Attributes : MonoBehaviour
         availablePoints = 5;
     }
 
-    void UpdateUI()
+    public int GetAvailablePoints()
+    {
+        return availablePoints;
+    }
+
+    public void UpdateUI()
     {
         strengthText.text = "Strength: " + strength;
         dexterityText.text = "Dexterity: " + dexterity;

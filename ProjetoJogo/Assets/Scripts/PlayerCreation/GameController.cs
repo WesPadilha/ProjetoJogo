@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject selectionScreen;
     public GameObject secondScreen;
+    public Text messageText; // Novo
 
     public Attributes attributes;
     public Skills skills;
-
+    public ClassOption classOption;
 
     private void Start()
     {
         // Certifique-se de que os objetos estão desativados no início
         secondScreen.SetActive(false);
+        messageText.gameObject.SetActive(false); // Novo
     }
 
     // Este método será chamado quando o jogador escolher uma das quatro opções
@@ -26,11 +27,23 @@ public class GameController : MonoBehaviour
 
         // Ativar a segunda tela
         secondScreen.SetActive(true);
+
+        // Esconder a mensagem de aviso
+        messageText.gameObject.SetActive(false); // Novo
     }
 
     // Este método será chamado quando o jogador pressionar o botão "Concluir" na terceira tela
     public void OnFinishButtonPressed()
     {
+        // Verificar se há pontos não distribuídos em atributos, habilidades ou falta de seleção de classe
+        if (attributes.GetAvailablePoints() > 0 || skills.GetAvailableSkillPoints() > 0 || !classOption.ClassSelected())
+        {
+            // Mostrar mensagem de aviso
+            messageText.text = "Distribua todos os pontos em Atributos, Habilidades e selecione uma Classe!";
+            messageText.gameObject.SetActive(true);
+            return;
+        }
+
         // Desativar a terceira tela
         secondScreen.SetActive(false);
         // Desativar a câmera principal
@@ -51,6 +64,8 @@ public class GameController : MonoBehaviour
 
         attributes.ResetAttributePoints();
         skills.ResetSkillPoints();
+
+        classOption.EnableAllButtons();
     }
 
     private void SpawnCharacter()
