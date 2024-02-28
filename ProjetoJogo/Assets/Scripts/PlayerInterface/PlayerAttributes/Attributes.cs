@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour
 {
-
     public Skills skills;
     public Text strengthText;
     public Text dexterityText;
@@ -54,14 +53,32 @@ public class Attributes : MonoBehaviour
         increaseCharismaBtn.onClick.AddListener(() => IncreaseAttribute("Charisma"));
         decreaseCharismaBtn.onClick.AddListener(() => DecreaseAttribute("Charisma"));
 
-        // Set initial attribute values
-        SetInitialAttributes(4, 4, 4, 4, 4, 4);
-
         UpdateUI();
         
     }
 
-    // Method to set initial attribute values
+    public void SetAttributesBasedOnRace(string race)
+    {
+        switch (race)
+        {
+            case "Human":
+                SetInitialAttributes(5, 5, 4, 5, 5, 5); // +1 Human
+                break;
+            case "Elf":
+                SetInitialAttributes(4, 5, 4, 6, 5, 5); // +2 Elf
+                break;
+            case "Dwarf":
+                SetInitialAttributes(6, 4, 5, 5, 4, 5); // +1 Dwarf
+                break;
+            case "Orc":
+                SetInitialAttributes(6, 5, 6, 4, 4, 4); // +2 Orc
+                break;
+            default:
+                Debug.LogError("Raça não reconhecida.");
+                break;
+        }
+    }
+
     public void SetInitialAttributes(int initialStrength, int initialDexterity, int initialConstitution, int initialIntelligence, int initialWisdom, int initialCharisma)
     {
         strength = initialStrength;
@@ -158,6 +175,11 @@ public class Attributes : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void ResetAttributePoints()
+    {
+        availablePoints = 5;
     }
 
     void UpdateUI()

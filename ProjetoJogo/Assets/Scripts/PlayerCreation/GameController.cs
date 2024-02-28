@@ -8,6 +8,10 @@ public class GameController : MonoBehaviour
     public GameObject selectionScreen;
     public GameObject secondScreen;
 
+    public Attributes attributes;
+    public Skills skills;
+
+
     private void Start()
     {
         // Certifique-se de que os objetos estão desativados no início
@@ -44,6 +48,9 @@ public class GameController : MonoBehaviour
 
         // Desativar a segunda e terceira telas
         secondScreen.SetActive(false);
+
+        attributes.ResetAttributePoints();
+        skills.ResetSkillPoints();
     }
 
     private void SpawnCharacter()

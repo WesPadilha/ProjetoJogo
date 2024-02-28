@@ -3195,6 +3195,8 @@ MonoBehaviour:
   mainCamera: {fileID: 709995625}
   selectionScreen: {fileID: 245022060}
   secondScreen: {fileID: 1426099646}
+  attributes: {fileID: 2038445338}
+  skills: {fileID: 1356313430}
 --- !u!4 &353556970
 Transform:
   m_ObjectHideFlags: 0

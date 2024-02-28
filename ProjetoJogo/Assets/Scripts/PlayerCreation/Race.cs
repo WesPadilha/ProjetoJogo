@@ -28,55 +28,58 @@ public class Race : MonoBehaviour
     public void SelectHuman()
     {
         selectedPrefab = humanPrefab;
+        attributes.SetAttributesBasedOnRace("Human");
         OnOptionSelected();
     }
 
     public void SelectElf()
     {
         selectedPrefab = elfPrefab;
+        attributes.SetAttributesBasedOnRace("Elf");
         OnOptionSelected();
     }
 
     public void SelectDwarf()
     {
         selectedPrefab = dwarfPrefab;
+        attributes.SetAttributesBasedOnRace("Dwarf");
         OnOptionSelected();
     }
 
     public void SelectOrc()
     {
         selectedPrefab = orcPrefab;
+        attributes.SetAttributesBasedOnRace("Orc");
         OnOptionSelected();
     }
 
     public void SelectRace()
+    {
+        // Destruir personagem existente, se houver
+        GameObject existingPlayer = GameObject.FindGameObjectWithTag("Player");
+        if (existingPlayer != null)
         {
-            // Destruir personagem existente, se houver
-            GameObject existingPlayer = GameObject.FindGameObjectWithTag("Player");
-            if (existingPlayer != null)
-            {
-                Destroy(existingPlayer);
-            }
-
-            // Spawn do novo personagem
-            GameObject newPlayer = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
-
-            // Obtém a referência ao componente PlayerAttributes do novo jogador
-            PlayerAttributes playerAttributes = newPlayer.GetComponentInChildren<PlayerAttributes>();
-            if (playerAttributes != null)
-            {
-                // Obtém os valores dos atributos do jogador
-                (int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) = playerAttributes.GetAttributes();
-
-                // Configura os valores dos atributos no script Attributes
-                attributes.SetInitialAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
-            }
-            else
-            {
-                Debug.LogError("PlayerAttributes não encontrado no jogador recém-criado.");
-            }
+            Destroy(existingPlayer);
         }
-    
+
+        // Spawn do novo personagem
+        GameObject newPlayer = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
+
+        // Obtém a referência ao componente PlayerAttributes do novo jogador
+        PlayerAttributes playerAttributes = newPlayer.GetComponentInChildren<PlayerAttributes>();
+        if (playerAttributes != null)
+        {
+            // Obtém os valores dos atributos do jogador
+            (int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) = playerAttributes.GetAttributes();
+
+            // Configura os valores dos atributos no script Attributes
+            attributes.SetInitialAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
+        }
+        else
+        {
+            Debug.LogError("PlayerAttributes não encontrado no jogador recém-criado.");
+        }
+    }
 
     private void OnOptionSelected()
     {

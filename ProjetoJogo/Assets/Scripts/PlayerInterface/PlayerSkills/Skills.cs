@@ -230,6 +230,12 @@ public class Skills : MonoBehaviour
         }
     }
 
+    public void ResetSkillPoints()
+    {
+        availableSkillPoints = 20;
+        UpdateSkillsBasedOnAttributes(); 
+    }
+
     void UpdateUI()
     {
         greatWeaponsText.text = "Great Weapons: " + greatWeapons;
