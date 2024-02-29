@@ -42,16 +42,16 @@ public class Skills : MonoBehaviour
 
     private int availableSkillPoints = 20;
 
-    private int greatWeapons;
-    private int rangedWeapons;
-    private int smallWeapons;
-    private int conjuration; 
-    private int lockpicking;
-    private int camouflage;
-    private int defense;
-    private int medicine;
-    private int trade;
-    private int oratory;
+    public int greatWeapons;
+    public int rangedWeapons;
+    public int smallWeapons;
+    public int conjuration;
+    public int lockpicking;
+    public int camouflage;
+    public int defense;
+    public int medicine;
+    public int trade;
+    public int oratory;
 
     void Start()
     {

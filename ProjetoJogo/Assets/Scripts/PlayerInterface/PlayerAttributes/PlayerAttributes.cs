@@ -11,15 +11,16 @@ public class PlayerAttributes : MonoBehaviour
     public int wisdom;
     public int charisma;
 
-    private void Start()
+    // Método para definir os atributos do jogador
+    public void SetAttributes(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
     {
-        // Set initial attribute values when the game starts
-        SetInitialAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
-    }
-    
-    private void SetInitialAttributes(int initialStrength, int initialDexterity, int initialConstitution, int initialIntelligence, int initialWisdom, int initialCharisma)
-    {
-        // Implement logic to set initial attributes here
+        // Define os atributos do jogador com os valores fornecidos
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
     }
     
     public void UpdateStrength(int value)

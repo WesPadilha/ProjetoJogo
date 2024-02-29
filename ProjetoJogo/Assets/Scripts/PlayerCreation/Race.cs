@@ -10,6 +10,7 @@ public class Race : MonoBehaviour
     public GameObject orcPrefab;
 
     public Attributes attributes;   
+    public Skills skills;
 
     public GameController gameController;
 
@@ -65,14 +66,47 @@ public class Race : MonoBehaviour
         if (playerAttributes != null)
         {
             // Obtém os valores dos atributos do jogador
-            (int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) = playerAttributes.GetAttributes();
+            int strength = attributes.strength;
+            int dexterity = attributes.dexterity;
+            int constitution = attributes.constitution;
+            int intelligence = attributes.intelligence;
+            int wisdom = attributes.wisdom;
+            int charisma = attributes.charisma;
 
-            // Configura os valores dos atributos no script Attributes
-            attributes.SetInitialAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
+            // Configura os valores dos atributos no script PlayerAttributes
+            playerAttributes.SetAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
+        }
+
+        PlayerSkills playerSkills = newPlayer.GetComponentInChildren<PlayerSkills>();
+        if (playerSkills != null)
+        {
+            // Obtém os valores das habilidades do jogador
+            int greatWeapons = skills.greatWeapons;
+            int rangedWeapons = skills.rangedWeapons;
+            int smallWeapons = skills.smallWeapons;
+            int conjuration = skills.conjuration;
+            int lockpicking = skills.lockpicking;
+            int camouflage = skills.camouflage;
+            int defense = skills.defense;
+            int medicine = skills.medicine;
+            int trade = skills.trade;
+            int oratory = skills.oratory;
+
+            // Configura os valores das habilidades no script PlayerSkills
+            playerSkills.greatWeapons = greatWeapons;
+            playerSkills.rangedWeapons = rangedWeapons;
+            playerSkills.smallWeapons = smallWeapons;
+            playerSkills.conjuration = conjuration;
+            playerSkills.lockpicking = lockpicking;
+            playerSkills.camouflage = camouflage;
+            playerSkills.defense = defense;
+            playerSkills.medicine = medicine;
+            playerSkills.trade = trade;
+            playerSkills.oratory = oratory;
         }
         else
         {
-            Debug.LogError("PlayerAttributes não encontrado no jogador recém-criado.");
+            Debug.LogError("PlayerSkills não encontrado no jogador recém-criado.");
         }
     }
 

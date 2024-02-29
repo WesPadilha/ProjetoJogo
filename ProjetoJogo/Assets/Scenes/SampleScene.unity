@@ -4613,15 +4613,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6724f58f4501b44eb44e15bf2235d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanPrefab: {fileID: 6631459612506995496, guid: 95f7dabb8fb958d49b7f775c1f075875,
+  humanPrefab: {fileID: 5097812783781997142, guid: 95f7dabb8fb958d49b7f775c1f075875,
     type: 3}
-  elfPrefab: {fileID: 8861613861242069718, guid: 9ca39f869b0e4e24eb004fa91c04c34a,
+  elfPrefab: {fileID: 2539578849577605673, guid: 9ca39f869b0e4e24eb004fa91c04c34a,
     type: 3}
-  dwarfPrefab: {fileID: 9005453519118953138, guid: ad01ecb8c23e68e45a03429de8a688db,
+  dwarfPrefab: {fileID: 5837664185101221765, guid: ad01ecb8c23e68e45a03429de8a688db,
     type: 3}
-  orcPrefab: {fileID: 4060285705290278785, guid: d556a02a8899c7b43ae23ca183ba1852,
+  orcPrefab: {fileID: 1930600702623230467, guid: d556a02a8899c7b43ae23ca183ba1852,
     type: 3}
   attributes: {fileID: 2038445338}
+  skills: {fileID: 1356313430}
   gameController: {fileID: 353556969}
 --- !u!1 &709995622
 GameObject:
@@ -9916,6 +9917,16 @@ MonoBehaviour:
   increaseOratoryBtn: {fileID: 1728250439}
   decreaseOratoryBtn: {fileID: 253154959}
   availableSkillPointsText: {fileID: 1816326011}
+  greatWeapons: 0
+  rangedWeapons: 0
+  smallWeapons: 0
+  conjuration: 0
+  lockpicking: 0
+  camouflage: 0
+  defense: 0
+  medicine: 0
+  trade: 0
+  oratory: 0
 --- !u!1 &1356986521
 GameObject:
   m_ObjectHideFlags: 0
