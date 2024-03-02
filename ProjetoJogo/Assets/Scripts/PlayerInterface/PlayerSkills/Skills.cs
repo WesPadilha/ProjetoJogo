@@ -86,7 +86,7 @@ public class Skills : MonoBehaviour
     {
         // Atualize cada habilidade com base nos atributos correspondentes
         greatWeapons = attributes.strength + attributes.dexterity;
-        rangedWeapons = attributes.strength + attributes.dexterity;
+        rangedWeapons = attributes.intelligence + attributes.dexterity;
         smallWeapons = attributes.strength + attributes.dexterity;
         conjuration = attributes.intelligence + attributes.charisma;
         lockpicking = attributes.dexterity + attributes.wisdom;

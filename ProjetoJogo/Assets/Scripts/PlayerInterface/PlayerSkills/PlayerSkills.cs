@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSkills : MonoBehaviour
@@ -14,14 +12,10 @@ public class PlayerSkills : MonoBehaviour
     public int medicine;
     public int trade;
     public int oratory;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    public (int, int, int, int, int, int, int, int, int, int) GetSkills()
     {
-        
+        return (greatWeapons, rangedWeapons, smallWeapons, conjuration, lockpicking,
+                camouflage, defense, medicine, trade, oratory);
     }
 }

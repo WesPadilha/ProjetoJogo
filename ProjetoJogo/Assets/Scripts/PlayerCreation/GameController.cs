@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
     public Camera mainCamera;
     public GameObject selectionScreen;
     public GameObject secondScreen;
-    public Text messageText; // Novo
+    public Text messageText; 
 
     public Attributes attributes;
     public Skills skills;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Race : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class Race : MonoBehaviour
 
     public Attributes attributes;   
     public Skills skills;
-
     public GameController gameController;
 
     private GameObject selectedPrefab; // Prefab selecionado pelo jogador

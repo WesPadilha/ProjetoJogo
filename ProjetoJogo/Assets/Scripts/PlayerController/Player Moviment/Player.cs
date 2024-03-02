@@ -23,11 +23,13 @@ public class Player : MonoBehaviour
     private float boostTimer = 0.0f;
 
     private CameraController cameraController;
+    private PlayerBook playerBook;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         cameraController = Camera.main.GetComponent<CameraController>();
+        playerBook = GetComponent<PlayerBook>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -54,6 +56,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (playerBook.IsBookOpen())
+        {
+            canRotate = false; 
+        }
+        else
+        {
+            canRotate = true;
+        }
+
         if (isClimbing)
         {
             float verticalClimb = Input.GetAxis("Vertical");

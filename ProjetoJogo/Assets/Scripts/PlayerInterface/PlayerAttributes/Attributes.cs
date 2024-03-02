@@ -196,7 +196,7 @@ public class Attributes : MonoBehaviour
         wisdomText.text = "Wisdom: " + wisdom;
         charismaText.text = "Charisma: " + charisma;
 
-        availablePointsText.text = "Available Points: " + availablePoints;
+        availablePointsText.text = "Attributes Points: " + availablePoints;
 
         skills.UpdateSkillsBasedOnAttributes();
     }

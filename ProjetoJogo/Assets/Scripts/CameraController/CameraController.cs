@@ -8,10 +8,11 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 2.0f;
     public Vector3 offset = new Vector3(0, 0, 0);
     private bool isClimbing = false;
+    private bool isMouseLocked = true; // Adicionado para controlar se o mouse está preso
 
     void LateUpdate()
     {
-        if (!isClimbing)
+        if (!isClimbing && isMouseLocked) // Apenas controla a rotação quando o mouse está preso
         {
             HandleRotation();
         }
@@ -36,5 +37,13 @@ public class CameraController : MonoBehaviour
     public void SetClimbing(bool climbing)
     {
         isClimbing = climbing;
+    }
+
+    // Adiciona um método para controlar o bloqueio do mouse
+    public void SetMouseLock(bool lockState)
+    {
+        isMouseLocked = lockState;
+        Cursor.lockState = lockState ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !lockState;
     }
 }

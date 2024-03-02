@@ -4613,13 +4613,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6724f58f4501b44eb44e15bf2235d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanPrefab: {fileID: 5097812783781997142, guid: 95f7dabb8fb958d49b7f775c1f075875,
+  humanPrefab: {fileID: 402590155105227992, guid: 95f7dabb8fb958d49b7f775c1f075875,
     type: 3}
-  elfPrefab: {fileID: 2539578849577605673, guid: 9ca39f869b0e4e24eb004fa91c04c34a,
+  elfPrefab: {fileID: 4234860002525674095, guid: 9ca39f869b0e4e24eb004fa91c04c34a,
     type: 3}
-  dwarfPrefab: {fileID: 5837664185101221765, guid: ad01ecb8c23e68e45a03429de8a688db,
+  dwarfPrefab: {fileID: 3717840266123524355, guid: ad01ecb8c23e68e45a03429de8a688db,
     type: 3}
-  orcPrefab: {fileID: 1930600702623230467, guid: d556a02a8899c7b43ae23ca183ba1852,
+  orcPrefab: {fileID: 6665462520690023233, guid: d556a02a8899c7b43ae23ca183ba1852,
     type: 3}
   attributes: {fileID: 2038445338}
   skills: {fileID: 1356313430}
@@ -11694,50 +11694,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540795910}
   m_CullTransparentMesh: 1
---- !u!1 &1573347206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1573347208}
-  - component: {fileID: 1573347207}
-  m_Layer: 0
-  m_Name: Attribute Data
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1573347207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573347206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc70316c8edae72408e3e8942b691ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1573347208
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573347206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151.18932, y: 353.9736, z: 2.1466753}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586331919
 GameObject:
   m_ObjectHideFlags: 0
