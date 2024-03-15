@@ -23,13 +23,13 @@ public class Player : MonoBehaviour
     private float boostTimer = 0.0f;
 
     private CameraController cameraController;
-    private PlayerBook playerBook;
+    private ManagerPAI managerPAI;
 
     void Start()
     {
+        managerPAI = FindObjectOfType<ManagerPAI>();
         characterController = GetComponent<CharacterController>();
         cameraController = Camera.main.GetComponent<CameraController>();
-        playerBook = GetComponent<PlayerBook>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -53,17 +53,26 @@ public class Player : MonoBehaviour
             cameraController.SetClimbing(false);
         }
     }
-
+    
     void Update()
     {
-        if (playerBook.IsBookOpen())
+        bool isDialogueActive = PlayerTalk.isDialogueActive;
+        bool isAnyUIActive = managerPAI.IsAnyUIActive();
+
+        if (isDialogueActive || isAnyUIActive)
         {
-            canRotate = false; 
+            canRotate = false;
+            cameraController.SetMouseLock(false); // Desbloqueia o mouse
         }
         else
         {
             canRotate = true;
+            if (!isClimbing) // Se não estiver escalando, controla o bloqueio do mouse
+            {
+                cameraController.SetMouseLock(true); // Bloqueia o mouse
+            }
         }
+
 
         if (isClimbing)
         {
