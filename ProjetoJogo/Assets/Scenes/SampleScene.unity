@@ -4197,7 +4197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanPrefab: {fileID: 4080691988605447504, guid: 1b7df67c2f951e3408470cdcd55e1d80,
     type: 3}
-  elfPrefab: {fileID: 5838679700441347302, guid: c255f7c6be08713459a25cfa8ed49e55,
+  elfPrefab: {fileID: 3258143653232160716, guid: c255f7c6be08713459a25cfa8ed49e55,
     type: 3}
   dwarfPrefab: {fileID: 4716358967775959074, guid: 63207cef7c5a6d14f8ccba0213dedd14,
     type: 3}

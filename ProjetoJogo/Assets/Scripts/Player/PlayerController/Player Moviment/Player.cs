@@ -56,10 +56,9 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        bool isDialogueActive = PlayerTalk.isDialogueActive;
         bool isAnyUIActive = managerPAI.IsAnyUIActive();
 
-        if (isDialogueActive || isAnyUIActive)
+        if (isAnyUIActive)
         {
             canRotate = false;
             cameraController.SetMouseLock(false); // Desbloqueia o mouse

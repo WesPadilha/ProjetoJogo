@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7ac0f847d647841a707f09b6587631, type: 3}
-  m_Name: New Inventory Item
+  m_Script: {fileID: 11500000, guid: ed5d69fc518a9c24ab33767ad169ec36, type: 3}
+  m_Name: Banana
   m_EditorClassIdentifier: 
-  itemName: Sword
-  itemSprite: {fileID: 21300000, guid: ab09f8c1c43de034d838005d358bb400, type: 3}
+  prefab: {fileID: 1994137131253845479, guid: e12f9766c9dfc3944a6f6caec691801a, type: 3}
+  type: 0
+  description: Bananas suculentas
+  restoreHealthValue: 16
