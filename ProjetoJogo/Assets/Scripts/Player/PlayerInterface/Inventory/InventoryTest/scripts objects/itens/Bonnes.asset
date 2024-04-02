@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b4473ef2e456d4480d934efe3b8c65, type: 3}
   m_Name: Bonnes
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3950939137083497926, guid: 65cf24585a0b4954fb34c4adeacfa4e9, type: 3}
+  Id: 1
+  uiDisplay: {fileID: 21300000, guid: 368a5133751d3974b99f01fddaf59d53, type: 3}
   type: 2
   description: Ossos de um morto
+  buffs: []

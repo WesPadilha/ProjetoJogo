@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635eb51fb09ca0040a2bb933ef1ab16c, type: 3}
   m_Name: Shild
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  Id: 5
+  uiDisplay: {fileID: 21300000, guid: e04bcd0aedf40bb448c9ae118684d9a2, type: 3}
   type: 1
   description: 'Escudo pesado '
-  atkBonus: 0
-  defenceBonus: 10
+  buffs:
+  - attributesItem: 3
+    value: 0
+    min: 3
+    max: 6
