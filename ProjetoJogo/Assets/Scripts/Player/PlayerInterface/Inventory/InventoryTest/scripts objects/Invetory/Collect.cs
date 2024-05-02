@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
+    public MouseItem mouseItem = new MouseItem();
     public InventoryObject inventory;
     public void OnTriggerEnter(Collider other)
     {
