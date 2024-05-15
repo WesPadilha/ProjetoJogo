@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DialogueEditor;
 public class PlayerTalk : MonoBehaviour
 {
     public static bool isDialogueActive = false; 
