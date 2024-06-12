@@ -18,5 +18,9 @@ MonoBehaviour:
   description: 
   data:
     Name: 
-    Id: -1
-    buffs: []
+    Id: 2
+    buffs:
+    - attributesItem: 6
+      value: 20
+      min: 5
+      max: 20

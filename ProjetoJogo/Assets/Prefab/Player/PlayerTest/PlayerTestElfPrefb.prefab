@@ -3013,6 +3013,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: bfbd47f4718514f488e47dc6353479a0, type: 2}
   equipment: {fileID: 11400000, guid: e5d030fb7a6a81341961934c4a1d04bb, type: 2}
+  playerSkills: {fileID: 8864098083893539924}
+  attributes:
+  - type: 0
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 1
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 2
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 3
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 4
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 5
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 6
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 7
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 8
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 9
+    value:
+      baseValue: 0
+      modifiedValue: 0
 --- !u!1 &8864098083938116908
 GameObject:
   m_ObjectHideFlags: 0

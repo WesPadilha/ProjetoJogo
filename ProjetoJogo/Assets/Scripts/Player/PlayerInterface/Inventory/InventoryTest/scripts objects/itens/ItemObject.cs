@@ -17,10 +17,16 @@ public enum ItemType
 
 public enum AttributesItem
 {
-    Agility,
-    Intellect,
-    Stamina,
-    Strngth
+    GreatWeapons,
+    RangedWeapons,
+    SmallWeapons,
+    Conjuration,
+    Lockpicking,
+    Camouflage,
+    Defense,
+    Medicine,
+    Trade,
+    Oratory
 }
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/item")]
 public class ItemObject : ScriptableObject
@@ -66,7 +72,7 @@ public class Item
 }
 
 [System.Serializable]
-public class ItemBuff
+public class ItemBuff : IModifiers
 {
     public AttributesItem attributesItem;
     public int value;
@@ -78,6 +84,12 @@ public class ItemBuff
         max= _max;
         GenerateValue();
     }
+
+    public void AddValue(ref int baseValue)
+    {
+        baseValue += value;
+    }
+
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);
